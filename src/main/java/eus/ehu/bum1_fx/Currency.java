@@ -1,11 +1,13 @@
+package eus.ehu.bum1_fx;
+
 /**
  * An example of the usefulness of enum Java types.
- * In the future Currencies can be added or removed and the list of values will be the 
+ * In the future Currencies can be added or removed and the list of values will be the
  * only code that will need to be altered.
- * 
+ *
  */
 public enum Currency {
-	
+
 	ARS		("Argentine Peso"),
 	AUD		("Australian Dollar"),
 	BRL		("Brazilian Real"),
@@ -37,9 +39,9 @@ public enum Currency {
 	}
 
 	/**
-	 * @return 					an array with the textual description of 
+	 * @return 					an array with the textual description of
 	 * the existing values in the enum type.
-	 * 
+	 *
 	 */
 	public static String[] longNames() {
 		String[] result = new String[Currency.values().length];

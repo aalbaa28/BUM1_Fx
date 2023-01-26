@@ -1,3 +1,5 @@
+package eus.ehu.bum1_fx;
+
 import java.util.InputMismatchException;
 import java.util.Locale;
 import java.util.Scanner;
@@ -51,7 +53,7 @@ public class CalculatorStarter {
 				System.out.printf("How many %s do you plan to exchange?:%n", origCurrency);
 				origAmount = input.nextDouble();
 				waiting = false;
-			} catch (InputMismatchException e) {				
+			} catch (InputMismatchException e) {
 				System.out.print("Please introduce a valid amount. ");
 				input.nextLine();    // to clear the buffer
 			}
@@ -71,11 +73,11 @@ public class CalculatorStarter {
 				printValidCurrencies();
 			}
 		}
-		
+
 		ForexOperator operator = new ForexOperator(origCurrency, origAmount, endCurrency);
 		try {
 			double endAmount = operator.getChangeValue();
-			CommissionCalculator calculator = new CommissionCalculator(endAmount, 
+			CommissionCalculator calculator = new CommissionCalculator(endAmount,
 					endCurrency);
 			endAmount -= calculator.calculateCommission();
 			System.out.printf("\nYou can obtain a net exchange value of %s %.2f.%n", endCurrency, endAmount);

@@ -1,3 +1,5 @@
+package eus.ehu.bum1_fx;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
@@ -22,22 +24,22 @@ public class ForexOperator {
 
 	/**
 	 * @return				The exchange value as obtained in an online service
-	 * (currencyconvert.online). Yes, it is a sort of piracy, but only intended 
+	 * (currencyconvert.online). Yes, it is a sort of piracy, but only intended
 	 * to be used as a teaching example.
-	 * 
-	 * @throws Exception	Several exceptions can be raised here, including 
+	 *
+	 * @throws Exception	Several exceptions can be raised here, including
 	 * URLMalformedException (unlikely), IOException and NumberFormatException
-	 * (when the change value cannot be  obtained, e.g. because the currency 
-	 * is not convertible). Additionally, if anything fails during the connection 
+	 * (when the change value cannot be  obtained, e.g. because the currency
+	 * is not convertible). Additionally, if anything fails during the connection
 	 * and no numerical outcome is obtained, it also raises a generic exception.
-	 * 
+	 *
 	 */
 	public double getChangeValue() throws Exception {
 
 		// Constructing and invoking the URL that should return the currency conversion.
 		// You can try it in a normal web browser.
-		String urlText = "https://currencyconvert.online/" + sourceCurrency 
-				+ "/" + endCurrency + "/" + amount;		
+		String urlText = "https://currencyconvert.online/" + sourceCurrency
+				+ "/" + endCurrency + "/" + amount;
 		URL url = new URL(urlText);
 		HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 		connection.setRequestMethod("GET");
@@ -45,7 +47,7 @@ public class ForexOperator {
 		connection.connect();
 		BufferedReader in = new BufferedReader(
 				new InputStreamReader(connection.getInputStream()));
-		
+
 		String current;
 		int pos0, pos1;
 		double sol = -1.0;
@@ -61,10 +63,10 @@ public class ForexOperator {
 				break;
 			}
 		}
-		
+
 		if (sol < 0)
 			throw new Exception();    // The page has not been downloaded or is wrong
-		
+
 		return sol;
 	}
 }
