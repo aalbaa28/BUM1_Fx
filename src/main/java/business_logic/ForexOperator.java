@@ -1,4 +1,4 @@
-package eus.ehu.bum1_fx;
+package business_logic;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

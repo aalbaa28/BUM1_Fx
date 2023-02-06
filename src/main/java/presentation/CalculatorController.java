@@ -1,9 +1,10 @@
-package eus.ehu.bum1_fx;
+package presentation;
 
 import java.math.RoundingMode;
 import java.text.NumberFormat;
 import java.util.Locale;
 
+import business_logic.*;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -32,10 +33,13 @@ public class CalculatorController {
         private ComboBox<String> toComboBox;
 
         @FXML
+        public ExchangeCalculator bizLogic;
+        @FXML
         void initialize() {
             // initialize toComboBox
             fromComboBox.setItems(FXCollections.observableArrayList(Currency.longNames()));
-
+            //initialize bizLogic
+            this.bizLogic= new BarcenaysCalculator();
             // initialize fromComboBox
             toComboBox.setItems(FXCollections.observableArrayList(Currency.longNames()));
 
